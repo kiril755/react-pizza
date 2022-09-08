@@ -15,6 +15,13 @@ root.render(
   </BrowserRouter>
 );
 
+console.log(myboi);
+
+var myboi = 222;
+myboi = 333;
+
+console.log(myboi);
+
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
