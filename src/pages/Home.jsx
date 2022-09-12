@@ -9,7 +9,7 @@ import Sort, { listFilter } from "../components/Sort";
 import PizzaBlock from "../components/PizzaBlock";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 import Pagination from "../components/Pagination/index";
-import { SearchContext } from "../App";
+
 import {
   selectfilter,
   setCategoryId,

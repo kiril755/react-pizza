@@ -6,21 +6,17 @@ import { Provider } from "react-redux";
 
 import App from "./App";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <BrowserRouter>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </BrowserRouter>
-);
-
-console.log(myboi);
-
-var myboi = 222;
-myboi = 333;
-
-console.log(myboi);
+const rootElem = document.getElementById("root");
+if (rootElem) {
+  const root = ReactDOM.createRoot(rootElem);
+  root.render(
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
+  );
+}
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
