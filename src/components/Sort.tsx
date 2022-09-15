@@ -17,18 +17,18 @@ export const listFilter: SortItem[] = [
 function Sort() {
   const dispatch = useDispatch();
   const sort = useSelector(selectSort);
-  const sortRef = React.useRef();
+  const sortRef = React.useRef<HTMLDivElement>(null);
 
   const [isVisible, setIsVisible] = React.useState(false);
   // const [selected, setSelected] = React.useState(0);
 
-  const onClickSelected = (obj) => {
+  const onClickSelected = (obj: SortItem) => {
     dispatch(setSort(obj));
     setIsVisible(false);
   };
 
   React.useEffect(() => {
-    const handleClickOutside = (e) => {
+    const handleClickOutside = (e: any) => {
       if (!e.path.includes(sortRef.current)) {
         setIsVisible(false);
       }
