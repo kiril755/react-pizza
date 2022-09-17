@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 
 import styles from "./Search.module.scss";
 
-const Search = () => {
+const Search: React.FC = () => {
   const dispatch = useDispatch();
   const [value, setValue] = React.useState("");
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -13,9 +13,7 @@ const Search = () => {
   const onClickClear = () => {
     dispatch(setSearchValue(""));
     setValue("");
-    // if (inputRef.current) {
-    //   inputRef.current.focus();
-    // }
+
     inputRef.current?.focus();
   };
 
@@ -26,7 +24,7 @@ const Search = () => {
     []
   );
 
-  const onChangeInput = (e) => {
+  const onChangeInput = (e: any) => {
     updateSearchValue(e.target.value);
     setValue(e.target.value);
   };
