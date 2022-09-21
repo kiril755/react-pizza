@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+
 import qs from "qs";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -99,9 +99,7 @@ const Home: React.FC = () => {
       <h2 className="content__title">Все пиццы</h2>
       {status === "error" ? (
         <div className="content__error-info">
-          <h2>
-            Корзина пустая <icon>😕</icon>
-          </h2>
+          <h2>Произошла ошибка 😕</h2>
           <p>
             К сожалению, не удалось получить пиццы, попробуйте повторить попытку
             позже

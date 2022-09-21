@@ -5,6 +5,10 @@ import { selectSort, setSort } from "../redux/slices/filterSlice";
 
 type SortItem = { name: string; sortProperty: string };
 
+type PopupClick = MouseEvent & {
+  path: Node[];
+};
+
 export const listFilter: SortItem[] = [
   { name: "популярности (DESK)", sortProperty: "rating" },
   { name: "популярности (ASC)", sortProperty: "-rating" },
@@ -28,8 +32,9 @@ function Sort() {
   };
 
   React.useEffect(() => {
-    const handleClickOutside = (e: any) => {
-      if (!e.path.includes(sortRef.current)) {
+    const handleClickOutside = (e: MouseEvent) => {
+      const _event = e as PopupClick;
+      if (sortRef.current && !_event.path.includes(sortRef.current)) {
         setIsVisible(false);
       }
     };
