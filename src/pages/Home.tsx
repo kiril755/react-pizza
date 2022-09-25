@@ -42,10 +42,7 @@ const Home: React.FC = () => {
     const category = categoryId > 0 ? `&category=${categoryId}` : "";
     const seacrh = searchValue ? `&search=${searchValue.toLowerCase()}` : "";
 
-    dispatch(
-      //@ts-ignore
-      fetchPizzas({ sortBy, order, category, seacrh, currentPage })
-    );
+    dispatch(fetchPizzas({ sortBy, order, category, seacrh, currentPage }));
   };
 
   React.useEffect(() => {
