@@ -81,7 +81,18 @@ const Home: React.FC = () => {
 
   //     const sort = listFilter.find((obj) => obj.sortProperty === params.sortBy);
 
+  //     первый вариант который был у меня 03.10
   //     dispatch(setFilters({ ...params, sort }));
+
+  //     второй вариант из видео #24 1:31:00
+  //     dispatch(
+  //       setFilters({
+  //         searchValue: params.search,
+  //         categoryId: Number(params.category),
+  //         currentPage: Number(params.currentPage),
+  //         sort: sort || sortList[0],
+  //       })
+  // );
   //     isSearch.current = true;
   //   }
   // }, []);
