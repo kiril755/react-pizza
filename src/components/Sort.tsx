@@ -4,8 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   selectSort,
   setSort,
+  Sort,
   SortPropertyEnum,
 } from "../redux/slices/filterSlice";
+import useWhyDidYouUpdate from "ahooks/lib/useWhyDidYouUpdate";
 
 type SortItem = {
   name: string;
@@ -25,9 +27,12 @@ export const listFilter: SortItem[] = [
   { name: "алфавиту (ASC)", sortProperty: SortPropertyEnum.TITLE_ASC },
 ];
 
-function SortPopup() {
+type SortPopupProps = { value: Sort };
+
+const SortPopup: React.FC<SortPopupProps> = React.memo(({ value }) => {
+  useWhyDidYouUpdate("SortPopup", { value });
+
   const dispatch = useDispatch();
-  const sort = useSelector(selectSort);
   const sortRef = React.useRef<HTMLDivElement>(null);
 
   const [isVisible, setIsVisible] = React.useState(false);
@@ -69,7 +74,7 @@ function SortPopup() {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span onClick={() => setIsVisible(!isVisible)}>{sort.name}</span>
+        <span onClick={() => setIsVisible(!isVisible)}>{value.name}</span>
       </div>
       {isVisible && (
         <div className="sort__popup">
@@ -81,7 +86,7 @@ function SortPopup() {
                   onClickSelected(obj);
                 }}
                 className={
-                  sort.sortProperty === obj.sortProperty ? "active" : ""
+                  value.sortProperty === obj.sortProperty ? "active" : ""
                 }
               >
                 {obj.name}
@@ -92,6 +97,6 @@ function SortPopup() {
       )}
     </div>
   );
-}
+});
 
 export default SortPopup;
