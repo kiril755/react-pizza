@@ -1,4 +1,4 @@
-# React Pizza
+# 🍕 React Pizza
 
 A pizza site, with cart, search, pagination, SortPopup and category filter.
 
