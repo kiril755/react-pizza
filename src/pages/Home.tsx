@@ -114,7 +114,7 @@ const Home: React.FC = () => {
     isSearch.current = false;
   }, [categoryId, sort, searchValue, currentPage]);
 
-  const skeletons = [...new Array(6)].map((_, index) => (
+  const skeletons = [...new Array(4)].map((_, index) => (
     <Skeleton key={index} />
   ));
   const pizzas = items.map((obj: any) => <PizzaBlock key={obj.id} {...obj} />);

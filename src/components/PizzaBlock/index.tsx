@@ -23,9 +23,9 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
   types,
 }) => {
   const dispatch = useDispatch();
+  const cartItem = useSelector(selectCartItemById(id));
   const [activeType, setActiveType] = React.useState(0);
   const [activeSize, setActiveSize] = React.useState(0);
-  const cartItem = useSelector(selectCartItemById(id));
 
   const addedCount = cartItem ? cartItem.count : 0;
 
@@ -41,6 +41,7 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
       size: sizes[activeSize],
       count: 0,
     };
+
     dispatch(addItem(item));
   };
 
