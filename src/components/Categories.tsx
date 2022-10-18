@@ -5,7 +5,7 @@ type CategorysProps = {
   onClickCategory: (idx: number) => void;
 };
 
-const Categories: React.FC<CategorysProps> = React.memo(
+export const Categories: React.FC<CategorysProps> = React.memo(
   ({ value, onClickCategory }) => {
     // const [activeIndex, setActiveIndex] = React.useState(0);
 
@@ -38,5 +38,3 @@ const Categories: React.FC<CategorysProps> = React.memo(
     );
   }
 );
-
-export default Categories;
